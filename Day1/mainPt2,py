@@ -1,0 +1,21 @@
+tempSumN1 = 0
+ValArray = []
+total = 0
+count = 0
+skip = 0
+input_file = open('Input.txt', 'r')
+
+for line in input_file:
+    ValArray.append(int(line))
+while count < len(ValArray) - 2:
+    if(skip == 0):
+        skip += 1
+        baseSum = ValArray[count] + ValArray[count + 1] + ValArray[count + 2]
+        tempSumN1 = baseSum
+    else:
+        baseSum = ValArray[count] + ValArray[count + 1] + ValArray[count + 2]
+        if(baseSum > tempSumN1):
+            total += 1
+        tempSumN1 = baseSum
+        count += 1
+print(total)
